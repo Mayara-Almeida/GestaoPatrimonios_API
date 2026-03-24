@@ -1,4 +1,17 @@
+using DotNetEnv;
+using GestaoPatrimonios.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Carregando o env -> Arquivo env foi criado para esconder nossos dados do banco, sendo uma camada de segurança
+Env.Load();
+
+// Pegando a connection string
+string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+// Conexão com o banco - Nossa connectionString(conexão com o banco) vem a partir do arquivo env
+builder.Services.AddDbContext<GestaoPatrimoniosContext>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 
