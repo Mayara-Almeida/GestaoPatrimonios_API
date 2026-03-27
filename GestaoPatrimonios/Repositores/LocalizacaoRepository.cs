@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonios.Contexts;
 using GestaoPatrimonios.Domains;
 using GestaoPatrimonios.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonios.Repositores
 {
@@ -54,6 +55,11 @@ namespace GestaoPatrimonios.Repositores
             localizacaoBanco.AreaID = localizacao.AreaID;
 
             _context.SaveChanges();
+        }
+
+        public Localizacao BuscarPorNome(string nomeLocal, Guid areaId)
+        {
+            return _context.Localizacao.FirstOrDefault(local => local.NomeLocal.ToLower() == nomeLocal.ToLower() && local.AreaID == areaId);
         }
     }
 }
