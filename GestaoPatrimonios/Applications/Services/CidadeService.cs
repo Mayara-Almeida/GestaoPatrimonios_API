@@ -1,4 +1,5 @@
-﻿using GestaoPatrimonios.Domains;
+﻿using GestaoPatrimonios.Applications.Regras;
+using GestaoPatrimonios.Domains;
 using GestaoPatrimonios.DTOs.CidadeDto;
 using GestaoPatrimonios.Exceptions;
 using GestaoPatrimonios.Interfaces;
@@ -36,6 +37,61 @@ namespace GestaoPatrimonios.Applications.Services
             {
                 throw new DomainException("Cidade não encontrada.");
             }
+
+            ListarCidadeDto cidadeDto = new ListarCidadeDto
+            {
+                CidadeID = cidade.CidadeID,
+                NomeCidade = cidade.NomeCidade,
+                Estado = cidade.Estado
+            };
+
+            return cidadeDto;
+        }
+
+        public void Adicionar(CriarCidadeDto dto)
+        {
+            Validar.ValidarNome(dto.NomeCidade);
+            Validar.ValidarEstado(dto.Estado);
+
+            Cidade? cidadeExistente = _repository.BuscarPorNomeEEstado(dto.NomeCidade, dto.Estado);
+
+            if (cidadeExistente != null)
+            {
+                throw new DomainException("Já existe uma cidade cadastrada com esse nome nesse estado.");
+            }
+
+            Cidade cidade = new Cidade
+            {
+                NomeCidade = dto.NomeCidade,
+                Estado = dto.Estado
+            };
+
+            _repository.Adicionar(cidade);
+        }
+
+        public void Atualizar(Guid cidadeId, CriarCidadeDto dto)
+        {
+            Validar.ValidarNome(dto.NomeCidade);
+            Validar.ValidarEstado(dto.Estado);
+
+            Cidade? cidadeBanco = _repository.BuscarPorId(cidadeId);
+
+            if(cidadeBanco == null)
+            {
+                throw new DomainException("Cidade não encontrada.");
+            }
+
+            Cidade? cidadeExistente = _repository.BuscarPorNomeEEstado(dto.NomeCidade, dto.Estado);
+
+            if (cidadeExistente != null && cidadeExistente.CidadeID != cidadeId)
+            {
+                throw new DomainException("Já existe uma cidade cadastrada com esse nome nesse estado.");
+            }
+
+            cidadeBanco.NomeCidade = dto.NomeCidade;
+            cidadeBanco.Estado = dto.Estado;
+
+            _repository.Atualizar(cidadeBanco);
         }
     }
 }

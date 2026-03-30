@@ -83,6 +83,89 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GestaoPatrimonios.Controllers.CidadeController",
+    "Method": "Listar",
+    "RelativePath": "api/Cidade",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GestaoPatrimonios.DTOs.CidadeDto.ListarCidadeDto, GestaoPatrimonios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.CidadeController",
+    "Method": "Adicionar",
+    "RelativePath": "api/Cidade",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.CidadeDto.CriarCidadeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.CidadeController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Cidade/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GestaoPatrimonios.DTOs.CidadeDto.ListarCidadeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.CidadeController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Cidade/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.CidadeDto.CriarCidadeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestaoPatrimonios.Controllers.LocalizacaoController",
     "Method": "Listar",
     "RelativePath": "api/Localizacao",
