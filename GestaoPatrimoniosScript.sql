@@ -300,3 +300,7 @@ GO
 INSERT INTO Bairro (NomeBairro, CidadeID) VALUES
 ('Centro', (SELECT CidadeID FROM Cidade WHERE NomeCidade = 'São Caetano do Sul'))
 GO
+
+ALTER TABLE Usuario
+ADD PrimeiroAcesso BIT NOT NULL DEFAULT 1;
+GO
