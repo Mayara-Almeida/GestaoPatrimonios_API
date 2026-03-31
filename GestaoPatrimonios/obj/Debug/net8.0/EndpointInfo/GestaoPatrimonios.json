@@ -446,6 +446,153 @@
         }
       }
     },
+    "/api/Endereco": {
+      "get": {
+        "tags": [
+          "Endereco"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarEnderecoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarEnderecoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarEnderecoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Endereco"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Endereco/{id}": {
+      "get": {
+        "tags": [
+          "Endereco"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarEnderecoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarEnderecoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListarEnderecoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Endereco"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CriarEnderecoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Localizacao": {
       "get": {
         "tags": [
@@ -592,6 +739,44 @@
           }
         }
       }
+    },
+    "/api/Usuario": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarUsuarioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarUsuarioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListarUsuarioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -634,6 +819,33 @@
           "estado": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriarEnderecoDto": {
+        "type": "object",
+        "properties": {
+          "logradouro": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "complemento": {
+            "type": "string",
+            "nullable": true
+          },
+          "cep": {
+            "type": "string",
+            "nullable": true
+          },
+          "bairroID": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -710,6 +922,37 @@
         },
         "additionalProperties": false
       },
+      "ListarEnderecoDto": {
+        "type": "object",
+        "properties": {
+          "enderecoID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "logradouro": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "complemento": {
+            "type": "string",
+            "nullable": true
+          },
+          "cep": {
+            "type": "string",
+            "nullable": true
+          },
+          "bairroID": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "ListarLocalizacaoDto": {
         "type": "object",
         "properties": {
@@ -731,6 +974,59 @@
             "nullable": true
           },
           "areaID": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListarUsuarioDto": {
+        "type": "object",
+        "properties": {
+          "usuarioID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nif": {
+            "type": "string",
+            "nullable": true
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "rg": {
+            "type": "string",
+            "nullable": true
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true
+          },
+          "carteiraTrabalho": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "ativo": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "primeiroAcesso": {
+            "type": "boolean"
+          },
+          "enderecoID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "cargoID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tipoUsuarioID": {
             "type": "string",
             "format": "uuid"
           }

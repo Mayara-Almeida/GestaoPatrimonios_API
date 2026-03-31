@@ -9,6 +9,6 @@ namespace GestaoPatrimonios.DTOs.AreaDto
         [StringLength(50, ErrorMessage = "O nome da área deve ter no máximo 50 caracteres.")]
         public string NomeArea { get; set; } = string.Empty; // string.Empty -> null é proibido
                                                              // string? = pode ser null
-                                                             // null! = "relaxa, confia que não vai entrar null!" - mas vai dar
+                                                             // null! = "relaxa, confia que não vai entrar null!" - mas vai dar merda
     }
 }

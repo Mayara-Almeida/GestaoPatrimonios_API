@@ -249,6 +249,89 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GestaoPatrimonios.Controllers.EnderecoController",
+    "Method": "Listar",
+    "RelativePath": "api/Endereco",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GestaoPatrimonios.DTOs.EnderecoDto.ListarEnderecoDto, GestaoPatrimonios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.EnderecoController",
+    "Method": "Adicionar",
+    "RelativePath": "api/Endereco",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.EnderecoDto.CriarEnderecoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.EnderecoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Endereco/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GestaoPatrimonios.DTOs.EnderecoDto.ListarEnderecoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.EnderecoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Endereco/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.EnderecoDto.CriarEnderecoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestaoPatrimonios.Controllers.LocalizacaoController",
     "Method": "Listar",
     "RelativePath": "api/Localizacao",
@@ -330,5 +413,25 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
+    "Method": "Listar",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GestaoPatrimonios.DTOs.UsuarioDto.ListarUsuarioDto, GestaoPatrimonios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]
