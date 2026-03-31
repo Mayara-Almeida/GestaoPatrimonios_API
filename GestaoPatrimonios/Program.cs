@@ -35,6 +35,10 @@ builder.Services.AddScoped<LocalizacaoService>();
 builder.Services.AddScoped<ICidadeRepository, CidadeRepository>();
 builder.Services.AddScoped<CidadeService>();
 
+// Bairros
+builder.Services.AddScoped<IBairroRepository, BairroRepository>();
+builder.Services.AddScoped<BairroService>();
+
 
 var app = builder.Build();
 

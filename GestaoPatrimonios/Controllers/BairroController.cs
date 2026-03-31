@@ -1,5 +1,5 @@
 ﻿using GestaoPatrimonios.Applications.Services;
-using GestaoPatrimonios.DTOs.CidadeDto;
+using GestaoPatrimonios.DTOs.BairroDto;
 using GestaoPatrimonios.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,29 +8,27 @@ namespace GestaoPatrimonios.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CidadeController : ControllerBase
+    public class BairroController : ControllerBase
     {
-        private readonly CidadeService _service;
+        private readonly BairroService _service;
 
-        public CidadeController(CidadeService service)
+        public BairroController(BairroService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarCidadeDto>> Listar()
+        public ActionResult<List<ListarBairroDto>> Listar()
         {
-            List<ListarCidadeDto> cidades = _service.Listar();
-            return Ok(cidades);
+            return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarCidadeDto> BuscarPorId(Guid id)
+        public ActionResult<ListarBairroDto> BuscarPorId(Guid id)
         {
             try
             {
-                ListarCidadeDto cidade = _service.BuscarPorId(id);
-                return Ok(cidade);
+                return Ok(_service.BuscarPorId(id));
             }
             catch (DomainException ex)
             {
@@ -39,14 +37,13 @@ namespace GestaoPatrimonios.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adicionar(CriarCidadeDto dto)
+        public ActionResult Adicionar(CriarBairroDto dto)
         {
             try
             {
                 _service.Adicionar(dto);
                 return Created();
             }
-
             catch (DomainException ex)
             {
                 return BadRequest(ex.Message);
@@ -54,7 +51,7 @@ namespace GestaoPatrimonios.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Atualizar(Guid id, CriarCidadeDto dto)
+        public ActionResult Atualizar(Guid id, CriarBairroDto dto)
         {
             try
             {
@@ -66,5 +63,5 @@ namespace GestaoPatrimonios.Controllers
                 return BadRequest(ex.Message);
             }
         }
-    }
+    } 
 }
