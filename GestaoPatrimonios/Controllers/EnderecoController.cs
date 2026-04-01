@@ -20,7 +20,8 @@ namespace GestaoPatrimonios.Controllers
         [HttpGet]
         public ActionResult<List<ListarEnderecoDto>> Listar()
         {
-            return Ok(_service.Listar());
+            List<ListarEnderecoDto> enderecos = _service.Listar();
+            return Ok(enderecos);
         }
 
         [HttpGet("{id}")]
@@ -28,7 +29,8 @@ namespace GestaoPatrimonios.Controllers
         {
             try
             {
-                return Ok(_service.BuscarPorId(id));
+                ListarEnderecoDto endereco = _service.BuscarPorId(id);
+                return Ok(endereco);
             }
             catch (DomainException ex)
             {
@@ -42,7 +44,7 @@ namespace GestaoPatrimonios.Controllers
             try
             {
                 _service.Adicionar(dto);
-                return Created();
+                return StatusCode(201);
             }
             catch (DomainException ex)
             {

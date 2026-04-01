@@ -56,16 +56,16 @@ namespace GestaoPatrimonios.Applications.Services
         {
             Validar.ValidarLogradouro(dto.Logradouro);
 
-            Endereco enderecoExiste = _repository.BuscarPorLogradouroENumero(dto.Logradouro, dto.Numero, dto.BairroID);
-
-            if(enderecoExiste != null)
-            {
-                throw new DomainException("Já existe um logradouro com esse número nesse bairro.");
-            }
-
             if(!_repository.BairroExiste(dto.BairroID))
             {
                 throw new DomainException("Bairro informado não existe.");
+            }
+
+            Endereco enderecoExistente = _repository.BuscarPorLogradouroENumero(dto.Logradouro, dto.Numero, dto.BairroID);
+
+            if(enderecoExistente != null)
+            {
+                throw new DomainException("Já existe um endereço com esses dados.");
             }
 
             Endereco endereco = new Endereco
@@ -91,16 +91,16 @@ namespace GestaoPatrimonios.Applications.Services
                 throw new DomainException("Endereço não encontrado.");
             }
 
-            Endereco enderecoExistente = _repository.BuscarPorLogradouroENumero(dto.Logradouro, dto.Numero, dto.BairroID);
-
-            if(enderecoExistente != null)
-            {
-                throw new DomainException("Já existe um logradouro com esse número nesse bairro.");
-            }
-
             if (!_repository.BairroExiste(dto.BairroID))
             {
                 throw new DomainException("Bairro informado não existe.");
+            }
+
+            Endereco enderecoExistente = _repository.BuscarPorLogradouroENumero(dto.Logradouro, dto.Numero, dto.BairroID, enderecoId);
+
+            if(enderecoExistente != null)
+            {
+                throw new DomainException("Já existe um endereço com esses dados.");
             }
 
             enderecoBanco.Logradouro = dto.Logradouro;

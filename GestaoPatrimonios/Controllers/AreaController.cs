@@ -45,7 +45,7 @@ namespace GestaoPatrimonios.Controllers
             try
             {
                 _service.Adicionar(dto);
-                return Created();
+                return StatusCode(201);
             }
             catch (DomainException ex)
             {

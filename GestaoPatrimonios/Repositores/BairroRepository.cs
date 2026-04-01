@@ -34,7 +34,7 @@ namespace GestaoPatrimonios.Repositores
 
         public bool CidadeExiste(Guid cidadeId)
         {
-            return _context.Bairro.Any(c => c.CidadeID == cidadeId);
+            return _context.Cidade.Any(c => c.CidadeID == cidadeId);
         }
 
         public void Adicionar(Bairro bairro)

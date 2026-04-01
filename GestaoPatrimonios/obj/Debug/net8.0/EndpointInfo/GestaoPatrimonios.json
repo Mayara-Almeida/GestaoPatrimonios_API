@@ -782,15 +782,13 @@
   "components": {
     "schemas": {
       "CriarAreaDto": {
-        "required": [
-          "nomeArea"
-        ],
         "type": "object",
         "properties": {
           "nomeArea": {
             "maxLength": 50,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
