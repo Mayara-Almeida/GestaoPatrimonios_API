@@ -415,6 +415,89 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GestaoPatrimonios.Controllers.TipoUsuarioController",
+    "Method": "Listar",
+    "RelativePath": "api/TipoUsuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GestaoPatrimonios.DTOs.TipoUsuarioDto.ListarTipoUsuarioDto, GestaoPatrimonios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.TipoUsuarioController",
+    "Method": "Adicionar",
+    "RelativePath": "api/TipoUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.TipoUsuarioDto.CriarTipoUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.TipoUsuarioController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/TipoUsuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GestaoPatrimonios.DTOs.TipoUsuarioDto.ListarTipoUsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.TipoUsuarioController",
+    "Method": "Atualizar",
+    "RelativePath": "api/TipoUsuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.TipoUsuarioDto.CriarTipoUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
     "Method": "Listar",
     "RelativePath": "api/Usuario",

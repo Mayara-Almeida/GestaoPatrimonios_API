@@ -47,6 +47,10 @@ builder.Services.AddScoped<EnderecoService>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 
+// Tipo de usuários
+builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
+builder.Services.AddScoped<TipoUsuarioService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

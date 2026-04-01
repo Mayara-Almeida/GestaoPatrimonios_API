@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestaoPatrimonios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0eb1717774b5e29c9183aa931a02388115e5b9f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f71b097a7ec21a9c518aa3f3856040a128c50b9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestaoPatrimonios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestaoPatrimonios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
