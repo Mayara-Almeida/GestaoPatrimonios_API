@@ -59,6 +59,10 @@ builder.Services.AddScoped<CargoService>();
 builder.Services.AddScoped<ITipoPatrimonioRepository, TipoPatrimonioRepository>();
 builder.Services.AddScoped<TipoPatrimonioService>();
 
+// Tipo de Alteração
+builder.Services.AddScoped<ITipoAlteracaoRepository, TipoAlteracaoRepository>();
+builder.Services.AddScoped<TipoAlteracaoService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

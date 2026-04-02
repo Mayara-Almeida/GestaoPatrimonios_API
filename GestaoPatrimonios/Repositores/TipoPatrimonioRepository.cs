@@ -30,7 +30,7 @@ namespace GestaoPatrimonios.Repositores
 
         public void Adicionar (TipoPatrimonio tipoPatrimonio)
         {
-            _context.Add(tipoPatrimonio);
+            _context.TipoPatrimonio.Add(tipoPatrimonio);
             _context.SaveChanges();
         }
 
