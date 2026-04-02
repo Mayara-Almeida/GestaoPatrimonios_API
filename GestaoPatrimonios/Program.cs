@@ -51,6 +51,10 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
 builder.Services.AddScoped<TipoUsuarioService>();
 
+// Cargos
+builder.Services.AddScoped<ICargoRepository, CargoRepository>();
+builder.Services.AddScoped<CargoService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
