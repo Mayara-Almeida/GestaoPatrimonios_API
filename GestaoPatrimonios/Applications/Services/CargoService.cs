@@ -78,7 +78,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             Cargo cargoExistente = _repository.BuscarPorNome(dto.NomeCargo);
 
-            if(cargoExistente != null)
+            if(cargoExistente != null && cargoExistente.CargoID != cargoId)
             {
                 throw new DomainException("Já existe um cargo com esse nome.");
             }

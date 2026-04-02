@@ -85,7 +85,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             Localizacao localExistente = _repository.BuscarPorNome(dto.NomeLocal, dto.AreaID);
 
-            if (localExistente != null)
+            if (localExistente != null && localExistente.LocalizacaoID != localizacaoId)
             {
                 throw new DomainException("Já existe um local cadastrado com esse nome nessa área.");
             }

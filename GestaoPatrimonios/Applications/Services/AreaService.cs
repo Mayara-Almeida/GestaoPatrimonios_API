@@ -79,7 +79,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             Area areaExistente = _repository.BuscarPorNome(dto.NomeArea);
 
-            if(areaExistente != null)
+            if(areaExistente != null && areaExistente.AreaID != areaId)
             {
                 throw new DomainException("Já existe uma área cadastrada com esse nome.");
             }

@@ -98,7 +98,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             Endereco enderecoExistente = _repository.BuscarPorLogradouroENumero(dto.Logradouro, dto.Numero, dto.BairroID, enderecoId);
 
-            if(enderecoExistente != null)
+            if(enderecoExistente != null && enderecoExistente.EnderecoID != enderecoId)
             {
                 throw new DomainException("Já existe um endereço com esses dados.");
             }
