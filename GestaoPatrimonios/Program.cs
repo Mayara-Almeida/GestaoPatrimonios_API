@@ -63,6 +63,11 @@ builder.Services.AddScoped<TipoPatrimonioService>();
 builder.Services.AddScoped<ITipoAlteracaoRepository, TipoAlteracaoRepository>();
 builder.Services.AddScoped<TipoAlteracaoService>();
 
+// Status de Transferência
+builder.Services.AddScoped<IStatusTransferenciaRepository, StatusTransferenciaRepository>();
+builder.Services.AddScoped<StatusTransferenciaService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
