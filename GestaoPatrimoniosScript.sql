@@ -304,3 +304,9 @@ GO
 ALTER TABLE Usuario
 ADD PrimeiroAcesso BIT NOT NULL DEFAULT 1;
 GO
+
+ALTER TABLE Patrimonio DROP CONSTRAINT FK_Patrimonio_TipoPatrimonio;
+GO
+
+DROP TABLE TipoPatrimonio;
+GO
