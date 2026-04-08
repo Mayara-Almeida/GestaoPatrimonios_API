@@ -67,6 +67,10 @@ builder.Services.AddScoped<TipoAlteracaoService>();
 builder.Services.AddScoped<IStatusTransferenciaRepository, StatusTransferenciaRepository>();
 builder.Services.AddScoped<StatusTransferenciaService>();
 
+// Status de Patrimônio
+builder.Services.AddScoped<IStatusPatrimonioRepository, StatusPatrimonioRepository>();
+builder.Services.AddScoped<StatusPatrimonioService>();
+
 
 var app = builder.Build();
 

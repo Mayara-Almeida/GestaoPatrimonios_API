@@ -498,6 +498,89 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GestaoPatrimonios.Controllers.StatusPatrimonioController",
+    "Method": "Listar",
+    "RelativePath": "api/StatusPatrimonio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[GestaoPatrimonios.DTOs.StatusPatrimonioDto.ListarStatusPatrimonioDto, GestaoPatrimonios, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.StatusPatrimonioController",
+    "Method": "Adicionar",
+    "RelativePath": "api/StatusPatrimonio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.StatusPatrimonioDto.CriarStatusPatrimonioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.StatusPatrimonioController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/StatusPatrimonio/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GestaoPatrimonios.DTOs.StatusPatrimonioDto.ListarStatusPatrimonioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.StatusPatrimonioController",
+    "Method": "Atualizar",
+    "RelativePath": "api/StatusPatrimonio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.StatusPatrimonioDto.CriarStatusPatrimonioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GestaoPatrimonios.Controllers.StatusTransferenciaController",
     "Method": "Listar",
     "RelativePath": "api/StatusTransferencia",
