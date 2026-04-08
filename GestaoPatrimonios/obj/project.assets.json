@@ -8785,23 +8785,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\47014999869\\.nuget\\packages\\": {},
+    "C:\\Users\\araya\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\47014999869\\Desktop\\GestaoPatrimonios_API\\GestaoPatrimonios\\GestaoPatrimonios.csproj",
+      "projectUniqueName": "C:\\Users\\araya\\OneDrive\\Área de Trabalho\\GestaoPatrimonios_API\\GestaoPatrimonios\\GestaoPatrimonios.csproj",
       "projectName": "GestaoPatrimonios",
-      "projectPath": "C:\\Users\\47014999869\\Desktop\\GestaoPatrimonios_API\\GestaoPatrimonios\\GestaoPatrimonios.csproj",
-      "packagesPath": "C:\\Users\\47014999869\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\47014999869\\Desktop\\GestaoPatrimonios_API\\GestaoPatrimonios\\obj\\",
+      "projectPath": "C:\\Users\\araya\\OneDrive\\Área de Trabalho\\GestaoPatrimonios_API\\GestaoPatrimonios\\GestaoPatrimonios.csproj",
+      "packagesPath": "C:\\Users\\araya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\araya\\OneDrive\\Área de Trabalho\\GestaoPatrimonios_API\\GestaoPatrimonios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\47014999869\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\araya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
