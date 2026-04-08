@@ -55,10 +55,6 @@ builder.Services.AddScoped<TipoUsuarioService>();
 builder.Services.AddScoped<ICargoRepository, CargoRepository>();
 builder.Services.AddScoped<CargoService>();
 
-// Tipo de Patrimônios
-builder.Services.AddScoped<ITipoPatrimonioRepository, TipoPatrimonioRepository>();
-builder.Services.AddScoped<TipoPatrimonioService>();
-
 // Tipo de Alteração
 builder.Services.AddScoped<ITipoAlteracaoRepository, TipoAlteracaoRepository>();
 builder.Services.AddScoped<TipoAlteracaoService>();

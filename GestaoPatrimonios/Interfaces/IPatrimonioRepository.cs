@@ -6,6 +6,8 @@ namespace GestaoPatrimonios.Interfaces
     {
         List<Patrimonio> Listar();
         Patrimonio BuscarPorId(Guid patrimonioId);
+
+        // Fazer esse com AsQueryable igual foi feito no endereço
         Patrimonio BuscarPorNumeroPatrimonio(string numeroPatrimonio, Guid? patrimonioId = null);
 
         bool LocalizacaoExiste(Guid localizacaoId);
