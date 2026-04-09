@@ -15,7 +15,7 @@ namespace GestaoPatrimonios.Repositores
 
         public List<Patrimonio> Listar()
         {
-            return _context.Patrimonio.OrderBy(patrimonio => patrimonio.PatrimonioID).ToList();
+            return _context.Patrimonio.OrderBy(patrimonio => patrimonio.Denominacao).ToList();
         }
 
         public Patrimonio BuscarPorId(Guid patrimonioId)

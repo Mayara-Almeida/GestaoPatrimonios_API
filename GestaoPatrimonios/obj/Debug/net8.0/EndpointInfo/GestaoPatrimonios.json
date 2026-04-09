@@ -1012,17 +1012,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CriarPatrimonioDto"
+                "$ref": "#/components/schemas/AtualizarPatrimonioDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CriarPatrimonioDto"
+                "$ref": "#/components/schemas/AtualizarPatrimonioDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CriarPatrimonioDto"
+                "$ref": "#/components/schemas/AtualizarPatrimonioDto"
               }
             }
           }
@@ -1087,16 +1087,27 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "statusPatrimonioId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarStatusPatrimonioDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarStatusPatrimonioDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizarStatusPatrimonioDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1733,6 +1744,43 @@
   },
   "components": {
     "schemas": {
+      "AtualizarPatrimonioDto": {
+        "type": "object",
+        "properties": {
+          "denominacao": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroPatrimonio": {
+            "type": "string",
+            "nullable": true
+          },
+          "valor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "imagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "localizacaoID": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AtualizarStatusPatrimonioDto": {
+        "type": "object",
+        "properties": {
+          "statusPatrimonioID": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "CriarAreaDto": {
         "type": "object",
         "properties": {

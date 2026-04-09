@@ -67,7 +67,7 @@ namespace GestaoPatrimonios.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Atualizar(Guid id, CriarPatrimonioDto dto)
+        public ActionResult Atualizar(Guid id, AtualizarPatrimonioDto dto)
         {
             try
             {
@@ -81,11 +81,11 @@ namespace GestaoPatrimonios.Controllers
         }
 
         [HttpPut("{id}/status")]
-        public ActionResult AtualizarStatus(Guid id, Guid statusPatrimonioId)
+        public ActionResult AtualizarStatus(Guid id, AtualizarStatusPatrimonioDto dto)
         {
             try
             {
-                _service.AtualizarStatus(id, statusPatrimonioId);
+                _service.AtualizarStatus(id, dto);
                 return NoContent();
             }
             catch (DomainException ex)

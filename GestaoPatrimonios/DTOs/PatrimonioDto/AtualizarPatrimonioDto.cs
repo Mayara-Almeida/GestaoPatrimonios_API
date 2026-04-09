@@ -1,0 +1,15 @@
+﻿namespace GestaoPatrimonios.DTOs.PatrimonioDto
+{
+    public class AtualizarPatrimonioDto
+    {
+        public string Denominacao { get; set; } = string.Empty;
+
+        public string NumeroPatrimonio { get; set; } = string.Empty;
+
+        public decimal? Valor { get; set; }
+
+        public string? Imagem { get; set; }
+
+        public Guid LocalizacaoID { get; set; }
+    }
+}

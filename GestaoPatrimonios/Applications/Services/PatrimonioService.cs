@@ -94,7 +94,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             Patrimonio patrimonioExistente = _repository.BuscarPorNumeroPatrimonio(dto.NumeroPatrimonio);
 
-            if(patrimonioExistente != null )
+            if (patrimonioExistente != null)
             {
                 throw new DomainException("Já existe um patrimônio com esse número.");
             }
@@ -112,7 +112,7 @@ namespace GestaoPatrimonios.Applications.Services
             _repository.Adicionar(patrimonio);
         }
 
-        public void Atualizar(Guid patrimonioId, CriarPatrimonioDto dto)
+        public void Atualizar(Guid patrimonioId, AtualizarPatrimonioDto dto)
         {
             Validar.ValidarDenominacao(dto.Denominacao);
             Validar.ValidarNumeroPatrimonio(dto.NumeroPatrimonio);
@@ -129,14 +129,9 @@ namespace GestaoPatrimonios.Applications.Services
                 throw new DomainException("Localização informada não existe.");
             }
 
-            if (!_repository.StatusPatrimonioExiste(dto.StatusPatrimonioID))
-            {
-                throw new DomainException("Status de patrimônio informado não existe.");
-            }
-
             Patrimonio patrimonioExistente = _repository.BuscarPorNumeroPatrimonio(dto.NumeroPatrimonio);
 
-            if (patrimonioExistente != null)
+            if (patrimonioExistente != null && patrimonioExistente.PatrimonioID != patrimonioId)
             {
                 throw new DomainException("Já existe um patrimônio com esse número.");
             }
@@ -146,12 +141,11 @@ namespace GestaoPatrimonios.Applications.Services
             patrimonioBanco.Valor = dto.Valor;
             patrimonioBanco.Imagem = dto.Imagem;
             patrimonioBanco.LocalizacaoID = dto.LocalizacaoID;
-            patrimonioBanco.StatusPatrimonioID = dto.StatusPatrimonioID;
 
             _repository.Atualizar(patrimonioBanco);
         }
 
-        public void AtualizarStatus(Guid patrimonioId, Guid statusPatrimonioId)
+        public void AtualizarStatus(Guid patrimonioId, AtualizarStatusPatrimonioDto dto)
         {
             Patrimonio patrimonioBanco = _repository.BuscarPorId(patrimonioId);
 
@@ -160,12 +154,12 @@ namespace GestaoPatrimonios.Applications.Services
                 throw new DomainException("Patrimônio não encontrado.");
             }
 
-            if (!_repository.StatusPatrimonioExiste(statusPatrimonioId))
+            if (!_repository.StatusPatrimonioExiste(dto.StatusPatrimonioID))
             {
                 throw new DomainException("Status de patrimônio informado não existe.");
             }
 
-            patrimonioBanco.StatusPatrimonioID = statusPatrimonioId;
+            patrimonioBanco.StatusPatrimonioID = dto.StatusPatrimonioID;
             _repository.AtualizarStatus(patrimonioBanco);
         }
     }

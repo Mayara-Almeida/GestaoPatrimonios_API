@@ -574,7 +574,7 @@
       },
       {
         "Name": "dto",
-        "Type": "GestaoPatrimonios.DTOs.PatrimonioDto.CriarPatrimonioDto",
+        "Type": "GestaoPatrimonios.DTOs.PatrimonioDto.AtualizarPatrimonioDto",
         "IsRequired": true
       }
     ],
@@ -594,9 +594,9 @@
         "IsRequired": true
       },
       {
-        "Name": "statusPatrimonioId",
-        "Type": "System.Guid",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.PatrimonioDto.AtualizarStatusPatrimonioDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
