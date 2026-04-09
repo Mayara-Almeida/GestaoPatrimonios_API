@@ -43,5 +43,30 @@ namespace GestaoPatrimonios.Applications.Regras
                 throw new DomainException("Número de patrimônio é obrigatório.");
             }
         }
+
+        public static void ValidarNIF(string nif)
+        {
+            if (string.IsNullOrWhiteSpace(nif))
+            {
+                throw new DomainException("NIF é obrigatório.");
+            }
+        }
+
+        public static void ValidarCPF(string cpf)
+        {
+            if (string.IsNullOrWhiteSpace(cpf))
+            {
+                throw new DomainException("CPF é obrigatório.");
+            }
+        }
+
+        public static void ValidarEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            {
+                throw new DomainException("Email inválido.");
+            }
+        }
     }
+    
 }

@@ -978,5 +978,89 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
+    "Method": "Adicionar",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.UsuarioDto.CriarUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GestaoPatrimonios.DTOs.UsuarioDto.ListarUsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.UsuarioDto.CriarUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GestaoPatrimonios.Controllers.UsuarioController",
+    "Method": "AtualizarStatus",
+    "RelativePath": "api/Usuario/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GestaoPatrimonios.DTOs.UsuarioDto.AtualizarStatusUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
