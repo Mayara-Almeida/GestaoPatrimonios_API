@@ -310,3 +310,5 @@ GO
 
 DROP TABLE TipoPatrimonio;
 GO
+
+ALTER TABLE Patrimonio DROP COLUMN TipoPatrimonioID;
