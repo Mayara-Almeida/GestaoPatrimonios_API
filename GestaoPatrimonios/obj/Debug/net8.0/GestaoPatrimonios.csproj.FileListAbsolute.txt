@@ -292,3 +292,4 @@ C:\Users\araya\OneDrive\Área de Trabalho\GestaoPatrimonios_API\GestaoPatrimonio
 C:\Users\araya\OneDrive\Área de Trabalho\GestaoPatrimonios_API\GestaoPatrimonios\obj\Debug\net8.0\GestaoPatrimonios.pdb
 C:\Users\araya\OneDrive\Área de Trabalho\GestaoPatrimonios_API\GestaoPatrimonios\obj\Debug\net8.0\GestaoPatrimonios.genruntimeconfig.cache
 C:\Users\araya\OneDrive\Área de Trabalho\GestaoPatrimonios_API\GestaoPatrimonios\obj\Debug\net8.0\ref\GestaoPatrimonios.dll
+C:\Users\47014999869\Desktop\GestaoPatrimonios_API\GestaoPatrimonios\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
