@@ -46,7 +46,7 @@ namespace GestaoPatrimonios.Controllers
                     return Unauthorized("Usuário não autenticado.");
                 }
 
-                Guid usuarioId = Guid.Parse(usuarioIdClaim); //Convertendo string para Guid
+                Guid usuarioId = Guid.Parse(usuarioIdClaim); //Convertendo string que vem do Jwt para Guid
 
                 _service.TrocarPrimeiraSenha(usuarioId, dto);
 

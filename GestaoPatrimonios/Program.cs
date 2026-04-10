@@ -105,6 +105,10 @@ builder.Services.AddScoped<PatrimonioService>();
 builder.Services.AddScoped<ILogPatrimonioRepository, LogPatrimonioRepository>();
 builder.Services.AddScoped<LogPatrimonioService>();
 
+// Solicitação Transferência
+builder.Services.AddScoped<ISolicitacaoTransferenciaRepository, SolicitacaoTransferenciaRepository>();
+builder.Services.AddScoped<SolicitacaoTransferenciaService>();
+
 // JWT
 builder.Services.AddScoped<GeradorTokenJwt>();
 builder.Services.AddScoped<AutenticacaoService>();

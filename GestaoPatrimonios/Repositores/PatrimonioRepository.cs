@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonios.Contexts;
 using GestaoPatrimonios.Domains;
 using GestaoPatrimonios.Interfaces;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace GestaoPatrimonios.Repositores
 {
@@ -23,26 +24,33 @@ namespace GestaoPatrimonios.Repositores
             return _context.Patrimonio.Find(patrimonioId);
         }
 
-        public Patrimonio BuscarPorNumeroPatrimonio(string numeroPatrimonio, Guid? patrimonioId = null)
+        public bool BuscarPorNumeroPatrimonio(string numeroPatrimonio)
         {
-            var consulta = _context.Patrimonio.AsQueryable();
-
-            if(patrimonioId.HasValue)
-            {
-                consulta = consulta.Where(patrimonio => patrimonio.PatrimonioID != patrimonioId.Value);
-            }
-
-            return consulta.FirstOrDefault(p => p.NumeroPatrimonio.ToLower() == numeroPatrimonio.ToLower());
+            return _context.Patrimonio.Any(patrimonio => patrimonio.NumeroPatrimonio == numeroPatrimonio);
         }
-
-        public bool LocalizacaoExiste(Guid localizacaoId)
-        {
-            return _context.Localizacao.Any(localizacao => localizacao.LocalizacaoID == localizacaoId);
-        }
-
         public bool StatusPatrimonioExiste(Guid statusPatrimonioId)
         {
             return _context.StatusPatrimonio.Any(status => status.StatusPatrimonioID == statusPatrimonioId);
+        }
+
+        public Localizacao LocalizacaoExiste(string nomeLocalizacao)
+        {
+            return _context.Localizacao.FirstOrDefault(localizacao => localizacao.NomeLocal.ToLower() == nomeLocalizacao.ToLower());
+        }
+
+        public StatusPatrimonio BuscarStatusPatrimonioPorNome(string nomeStatus)
+        {
+            return _context.StatusPatrimonio.FirstOrDefault(status => status.NomeStatus.ToLower() == nomeStatus.ToLower());
+        }
+
+        public TipoAlteracao BuscarTipoAlteracaoPorNome(string nomeTipo)
+        {
+            return _context.TipoAlteracao.FirstOrDefault(tipo => tipo.NomeTipo.ToLower() == nomeTipo.ToLower());
+        }
+
+        public Localizacao BuscarLocalizacaoPorNome(string nomeLocalizacao)
+        {
+            return _context.Localizacao.FirstOrDefault(localizacao => localizacao.NomeLocal.ToLower() == nomeLocalizacao.ToLower());
         }
 
         public void Adicionar(Patrimonio patrimonio)
@@ -51,34 +59,11 @@ namespace GestaoPatrimonios.Repositores
             _context.SaveChanges();
         }
 
-        public void Atualizar(Patrimonio patrimonio)
-        {
-            if(patrimonio == null)
-            {
-                return; 
-            }
-
-            Patrimonio patrimonioBanco = _context.Patrimonio.Find(patrimonio.PatrimonioID);
-
-            if(patrimonioBanco == null)
-            {
-                return; 
-            }
-
-            patrimonioBanco.Denominacao = patrimonio.Denominacao;
-            patrimonioBanco.NumeroPatrimonio = patrimonio.NumeroPatrimonio;
-            patrimonioBanco.Valor = patrimonio.Valor;
-            patrimonioBanco.Imagem = patrimonio.Imagem;
-            patrimonioBanco.LocalizacaoID = patrimonio.LocalizacaoID;
-
-            _context.SaveChanges();
-        }
-
         public void AtualizarStatus(Patrimonio patrimonio)
         {
-            if(patrimonio == null)
+            if (patrimonio == null)
             {
-                return; 
+                return;
             }
 
             Patrimonio patrimonioBanco = _context.Patrimonio.Find(patrimonio.PatrimonioID);
@@ -90,6 +75,12 @@ namespace GestaoPatrimonios.Repositores
 
             patrimonioBanco.StatusPatrimonioID = patrimonio.StatusPatrimonioID;
 
+            _context.SaveChanges();
+        }
+
+        public void AdicionarLog(LogPatrimonio logPatrimonio)
+        {
+            _context.LogPatrimonio.Add(logPatrimonio);
             _context.SaveChanges();
         }
     }

@@ -1,8 +1,10 @@
 ﻿using GestaoPatrimonios.Applications.Services;
 using GestaoPatrimonios.DTOs.PatrimonioDto;
 using GestaoPatrimonios.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace GestaoPatrimonios.Controllers
 {
@@ -38,27 +40,24 @@ namespace GestaoPatrimonios.Controllers
             }
         }
 
-        [HttpGet("numero/{numeroPatrimonio}")]
-        public ActionResult<ListarPatrimonioDto> BuscarPorNumeroPatrimonio(string numeroPatrimonio)
+        [Authorize(Roles = "Coordenador")]
+        [HttpPost("importar-csv")]
+        public ActionResult Adicionar(IFormFile arquivoCsv)
         {
             try
             {
-                ListarPatrimonioDto patrimonio = _service.BuscarPorNumeroPatrimonio(numeroPatrimonio);
-                return Ok(patrimonio);
-            }
-            catch (DomainException ex)
-            {
-                return NotFound(ex.Message);
-            }
-        }
+                string usuarioIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        [HttpPost]
-        public ActionResult Adicionar(CriarPatrimonioDto dto)
-        {
-            try
-            {
-                _service.Adicionar(dto);
-                return StatusCode(201);
+                if (string.IsNullOrWhiteSpace(usuarioIdClaim))
+                {
+                    return Unauthorized("Usuário não autenticado.");
+                }
+
+                Guid usuarioId = Guid.Parse(usuarioIdClaim);
+
+                _service.Adicionar(arquivoCsv, usuarioId);
+
+                return Created();
             }
             catch (DomainException ex)
             {
@@ -66,21 +65,8 @@ namespace GestaoPatrimonios.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public ActionResult Atualizar(Guid id, AtualizarPatrimonioDto dto)
-        {
-            try
-            {
-                _service.Atualizar(id, dto);
-                return NoContent();
-            }
-            catch (DomainException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPut("{id}/status")]
+        [Authorize(Roles = "Coordenador")]
+        [HttpPatch("{id}/status")]
         public ActionResult AtualizarStatus(Guid id, AtualizarStatusPatrimonioDto dto)
         {
             try
